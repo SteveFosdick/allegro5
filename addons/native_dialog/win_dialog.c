@@ -702,10 +702,10 @@ static bool menu_callback(ALLEGRO_DISPLAY *display, UINT msg, WPARAM wParam, LPA
 
    if (msg == WM_COMMAND && lParam == 0) {
       const int id = LOWORD(wParam);
-      _AL_MENU_ID *menu_id = _al_find_parent_menu_by_id(display, id);
-      if (menu_id && (al_get_menu_item_flags(menu_id->menu, id) & ALLEGRO_MENU_ITEM_CHECKBOX)) {
+      ALLEGRO_MENU *menu = _al_find_parent_menu_by_id(display, id);
+      if (menu && (al_get_menu_item_flags(menu, id) & ALLEGRO_MENU_ITEM_CHECKBOX)) {
          /* Toggle the checkbox, since Windows doesn't do that automatically. */
-         al_toggle_menu_item_flags(menu_id->menu, id, ALLEGRO_MENU_ITEM_CHECKED);
+         al_toggle_menu_item_flags(menu, id, ALLEGRO_MENU_ITEM_CHECKED);
       }
       _al_emit_menu_event(display, id);
       return true;
@@ -756,7 +756,7 @@ static void init_menu_info(MENUITEMINFO *info, ALLEGRO_MENU_ITEM *menu)
 
    info->cbSize = sizeof(*info);   
    info->fMask = MIIM_FTYPE | MIIM_STATE | MIIM_ID | MIIM_SUBMENU | MIIM_STRING | MIIM_CHECKMARKS;
-   info->wID = menu->unique_id;
+   info->wID = menu->id;
 
    if (!menu->caption) {
       info->fType = MFT_SEPARATOR;

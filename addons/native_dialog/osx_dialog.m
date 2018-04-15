@@ -590,7 +590,7 @@ int _al_get_menu_display_height(void)
         if (aitim->flags & ALLEGRO_MENU_ITEM_CHECKBOX) {
             aitim->flags ^= ALLEGRO_MENU_ITEM_CHECKED;
         }
-        _al_emit_menu_event(aitim->parent->display, aitim->unique_id);
+        _al_emit_menu_event(aitim->parent->display, aitim->id);
     }
 }
 // Insert an item, keep the NSMenu in sync
