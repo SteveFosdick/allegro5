@@ -93,7 +93,7 @@ static const unsigned char hw_to_mycode[256] =
    /* 0xD0 */    0,                       0,                         0,                          0,
    /* 0xD4 */    0,                       0,                         0,                          0,
    /* 0xD8 */    0,                       0,                         0,                          ALLEGRO_KEY_OPENBRACE,
-   /* 0xDC */    ALLEGRO_KEY_BACKSLASH,   ALLEGRO_KEY_CLOSEBRACE,    ALLEGRO_KEY_QUOTE,          0,
+   /* 0xDC */    ALLEGRO_KEY_BACKSLASH,   ALLEGRO_KEY_CLOSEBRACE,    ALLEGRO_KEY_QUOTE,          ALLEGRO_KEY_UNKNOWN+39,
    /* 0xE0 */    0,                       0,                         ALLEGRO_KEY_BACKSLASH2,     0,
    /* 0xE4 */    0,                       ALLEGRO_KEY_UNKNOWN+29,    0,                          0,
    /* 0xE8 */    0,                       0,                         0,                          0,
